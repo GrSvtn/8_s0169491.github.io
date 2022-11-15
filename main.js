@@ -1,15 +1,12 @@
 window.addEventListener("DOMContentLoaded", function () {
     window.addEventListener("popstate", formShow);
-    let buttonFormShow = document.getElementById("buttonFormShow");
-    buttonFormShow.addEventListener("click", function () {
+    document.getElementById("buttonFormShow").addEventListener("click", function () {
         history.pushState({ "form": true }, "", "?form=true");
         formShow();
     });
     formShow();
-    let inputs = document.querySelectorAll(".save-to-storage");
-    inputs.forEach(function (input) { input.addEventListener("input", saveData); });
-    let formButton = document.getElementById("formSubmit");
-    formButton.addEventListener("click", sendForm);
+    document.querySelectorAll(".save-to-storage").forEach(function (input) { input.addEventListener("input", function () {localStorage.setItem (this.id, this.value)}); });
+    document.getElementById("formSubmit").addEventListener("click", sendForm);
 });
 
 function formShow() {
@@ -17,16 +14,9 @@ function formShow() {
     if (history.state != null && history.state.form === true) {
         popup.style.display = "block";
         popup.style.position = "absolute";
-        let inputs = document.querySelectorAll(".save-to-storage");
-        inputs.forEach(function (input) { input.value = localStorage.getItem(input.id); });
-    }
-    else {
+        document.querySelectorAll(".save-to-storage").forEach(function (input) { input.value = localStorage.getItem(input.id); });
+    } else
         popup.style.display = "none";
-    }
-}
-
-function saveData() {
-    localStorage.setItem(this.id, this.value);
 }
 
 function sendForm() {
