@@ -1,0 +1,49 @@
+body {
+    background-color: #dfdfeb;
+    margin: 0;
+}
+
+main {
+    max-width: 960px;
+    font-size: 5vw;
+}
+
+div#body {
+    font-size: large;
+}
+
+#popup {
+    display: none;
+    width: 100vw;
+    background-color: rgb(0, 0, 0, 0.7);
+    height: 100vh;
+    top: 0px;
+    left: 0px;
+}
+
+#popup form {
+    width: 100vW;
+    border-width: 3px;
+    background-color: wheat;
+}
+
+textarea {
+    overflow: auto;
+    resize: none;
+}
+
+@media screen and (min-width: 960px) {
+    div#body {
+        max-width: 960px;
+    }
+}
+
+@media screen and (min-width:576px) {
+    #popup form {
+        max-width: 50vW;
+    }
+    
+    textarea {
+        resize: vertical;
+    }
+}
