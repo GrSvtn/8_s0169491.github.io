@@ -1,3 +1,15 @@
+window.addEventListener("DOMContentLoaded", function () {
+    window.addEventListener("popstate", formShow);
+    document.getElementById("表單顯示").addEventListener("click", function () {
+        history.pushState({ "form": true }, "", "?form=true");
+        formShow();
+    });
+    formShow();
+    document.querySelectorAll(".save-to-storage").forEach(function (input) { input.addEventListener("input", function () {localStorage.setItem (this.id, this.value)}); });
+    document.getElementById("按鈕").addEventListener("click", sendForm);
+});
+
+
 function formShow() {
     let popup = document.getElementById("彈出窗口");
     if (history.state != null && history.state.form === true) {
@@ -42,14 +54,3 @@ function sendForm() {
 const validateEmail = (email) => {
     return String(email).toLowerCase().match(/^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/);
 };
-
-window.addEventListener("DOMContentLoaded", function () {
-    window.addEventListener("popstate", formShow);
-    document.getElementById("表單顯示").addEventListener("click", function () {
-        history.pushState({ "form": true }, "", "?form=true");
-        formShow();
-    });
-    formShow();
-    document.querySelectorAll(".save-to-storage").forEach(function (input) { input.addEventListener("input", function () {localStorage.setItem (this.id, this.value)}); });
-    document.getElementById("按鈕").addEventListener("click", sendForm);
-});
