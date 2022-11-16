@@ -24,24 +24,24 @@
     </head>
 
     <body class="container-fluid m-0 p-0">
-        <main><button type="button" class="btn btn-outline-info" id="buttonFormShow">Feedback form</button></main>
+        <main><button type="button" class="btn btn-outline-info" id="表單顯示">Feedback form</button></main>
         
-        <div id="popup" class="text-center">
+        <div id="彈出窗口" class="text-center">
             <form class="mt-sm-2 p-2 border rounded mx-auto" method="POST" action="https://formcarry.com/s/cB6SsjsbV">
-                <label for="name" class="form-check-label">Имя:</label>
-                <input type="text" class="form-control save-to-storage" id="name" required name="name"><br>
+                <label for="姓名" class="form-check-label">Name:</label>
+                <input type="text" class="form-control save-to-storage" id="姓名" required name="name"><br>
 
-                <label for="email" class="form-check-label">E-mail:</label>
-                <input type="email" class="form-control save-to-storage" id="email" required name="email"><br>
+                <label for="電郵" class="form-check-label">E-mail:</label>
+                <input type="email" class="form-control save-to-storage" id="電郵" required name="email"><br>
 
-                <label for="message" class="form-check-label">Текст сообщения:</label><br>
-                <textarea id="message" class="form-control save-to-storage" rows="8" required name="message"></textarea><br>
+                <label for="訊息" class="form-check-label">Message:</label><br>
+                <textarea id="訊息" class="form-control save-to-storage" rows="3" required name="message"></textarea><br>
 
-                <input type="checkbox" class="form-check-input" id="checkbox" required name="agreement" value="agreed">
-                <label for="checkbox" class="form-check-label">На все согласен</label><br>
+                <input type="checkbox" class="form-check-input" id="複選框" required name="agreement" value="agreed">
+                <label for="複選框" class="form-check-label">I agree to Privacy Policy</label><br>
 
-                <button type="button" class="btn btn-outline-primary" id="formSubmit">Отправить</button>
-                <div id="result"></div>
+                <button type="submit" class="btn btn-outline-primary" id="按鈕">Send</button>
+                <div id="結果"></div>
             </form>
         </div>
     </body>
