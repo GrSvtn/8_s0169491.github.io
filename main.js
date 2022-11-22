@@ -1,25 +1,26 @@
 window.addEventListener("DOMContentLoaded", function () {
-    window.addEventListener("popstate", formShow);
+    window.addEventListener("popstate", 顯示);
     document.getElementById("表單顯示").addEventListener("click", function () {
         history.pushState({ "form": true }, "", "?form=true");
-        formShow();
+        顯示();
     });
-    formShow();
+    顯示();
     document.querySelectorAll(".save-to-storage").forEach(function (input) { input.addEventListener("input", function () {localStorage.setItem (this.id, this.value)}); });
-    document.getElementById("按鈕").addEventListener("click", sendForm);
+    document.getElementById("按鈕").addEventListener("click", 遞交);
 });
 
 
-function formShow() {
+function 顯示() {
     let popup = document.getElementById("彈出窗口");
     if (history.state != null && history.state.form === true) {
         popup.style.display = "block";
+        popup.style.position = "absolute";
         document.querySelectorAll(".save-to-storage").forEach(function (input) { input.value = localStorage.getItem(input.id); });
     } else
         popup.style.display = "none";
 }
 
-function sendForm() {
+function 遞交() {
     let name = document.getElementById("姓名").value;
     let email = document.getElementById("電郵").value;
     let message = document.getElementById("訊息").value;
@@ -41,13 +42,13 @@ function sendForm() {
             if (this.readyState == 4) {
                 localStorage.clear();
                 result.style.color = "green";
-                result.innerHTML = "Успешно отправлено";
+                result.innerHTML = "Successfully sent";
             }
         }
     }
     else {
         result.style.color = "red";
-        result.innerHTML = "Заполните форму полностью и отметьте чекбокс";
+        result.innerHTML = "Fullfill the form and check the checkbox";
     }
 }
 
